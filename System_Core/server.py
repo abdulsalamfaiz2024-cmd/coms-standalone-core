@@ -241,6 +241,31 @@ class ConsultancyRequestHandler(http.server.SimpleHTTPRequestHandler):
         # Fallback to standard static file serving
         return super().do_GET()
 
+    
+    def _get_user_from_request(self):
+        auth_header = self.headers.get('Authorization')
+        if not auth_header:
+            return None
+        
+        try:
+            token = auth_header.split(' ')[1]
+            user_id = verify_session(token)
+            if not user_id:
+                return None
+                
+            # Get full user details for role checking
+            conn = db_engine.get_connection()
+            cursor = conn.cursor()
+            cursor.execute("SELECT * FROM Users WHERE id = ?", (user_id,))
+            row = cursor.fetchone()
+            conn.close()
+            
+            if row:
+                return dict(row)
+            return None
+        except:
+            return None
+
     def do_POST(self):
         print(f"DEBUG: POST Request -> {self.path}")
         
@@ -299,8 +324,19 @@ class ConsultancyRequestHandler(http.server.SimpleHTTPRequestHandler):
                     self.send_error(400, "Missing doctype or id")
                     return
                 
+                # --- PERMISSION CHECK ---
+                user = self._get_user_from_request()
+                if not user:
+                    self.send_error(401, "Unauthorized: Login Required")
+                    return
+
+                if not db_engine.check_action_permission(user['role'], 'delete'):
+                    self.send_error(403, f"Access Denied: You do not have permission to delete {table}")
+                    return
+                # ------------------------
+                
                 print(f"DEBUG: Deleting {doc_id} from {table}")
-                db_engine.delete_one(table, doc_id)
+                db_engine.delete_one(table, doc_id, user_id=user['id'], username=user['username'])
                 self.send_json({"status": "success", "message": "Record Deleted"})
                 return
             except Exception as e:
@@ -432,8 +468,24 @@ class ConsultancyRequestHandler(http.server.SimpleHTTPRequestHandler):
                     self.send_error(400, "Missing doctype in payload")
                     return
                 
+                
+                # --- PERMISSION CHECK ---
+                user = self._get_user_from_request()
+                if not user:
+                    self.send_error(401, "Unauthorized: Login Required")
+                    return
+
+                # Determine Action (Create or Update)
+                action = 'update' if data.get('id') and db_engine.get_one(table, data['id']) else 'create'
+                
+                # Check Logic
+                if not db_engine.check_action_permission(user['role'], action):
+                    self.send_error(403, f"Access Denied: You do not have permission to {action} {table}")
+                    return
+                # ------------------------
+
                 print(f"DEBUG: Saving to SQL table '{table}'")
-                res_id = db_engine.save_one(table, data)
+                res_id = db_engine.save_one(table, data, user_id=user['id'], username=user['username'])
                 self.send_json({"id": res_id, "status": "success", "message": "Committed to SQL"})
                 return
             except ValueError as ve:

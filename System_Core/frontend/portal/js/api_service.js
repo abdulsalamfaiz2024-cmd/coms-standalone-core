@@ -6,7 +6,10 @@ const api = {
     async call(method, path, data = null) {
         const options = {
             method,
-            headers: { 'Content-Type': 'application/json' }
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('auth_token')}`
+            }
         };
         if (data) options.body = JSON.stringify(data);
         const res = await fetch(path, options);
