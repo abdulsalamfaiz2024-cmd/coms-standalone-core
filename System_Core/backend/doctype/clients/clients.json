@@ -1,0 +1,36 @@
+{
+    "name": "Clients",
+    "doctype": "DocType",
+    "fields": [
+        {
+            "fieldname": "Client_Name",
+            "label": "Client Name",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "ClientCode",
+            "label": "Clientcode",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "ClientType",
+            "label": "Clienttype",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "ContactEmail",
+            "label": "Contactemail",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Status",
+            "label": "Status",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "EndDate",
+            "label": "Relationship End Date",
+            "fieldtype": "Date"
+        }
+    ]
+}

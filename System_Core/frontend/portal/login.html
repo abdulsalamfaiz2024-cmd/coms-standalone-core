@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Consultancy OS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-900 h-screen flex items-center justify-center relative overflow-hidden">
+
+    <!-- Background Effects -->
+    <div class="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none">
+        <div class="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-blue-600 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-purple-600 rounded-full blur-[120px]"></div>
+    </div>
+
+    <div class="w-full max-w-md bg-white rounded-3xl shadow-2xl overflow-hidden relative z-10 p-10">
+        <div class="text-center mb-10">
+            <h1 class="text-3xl font-black text-slate-900 tracking-tight mb-2">Welcome Back</h1>
+            <p class="text-sm font-bold text-slate-400 uppercase tracking-widest">Consultancy Operating System</p>
+        </div>
+
+        <form id="login-form" class="space-y-6">
+            <div>
+                <label class="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2">Username</label>
+                <input type="text" id="username"
+                    class="w-full p-4 bg-slate-50 border-none rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+                    placeholder="Enter username (admin)" required>
+            </div>
+
+            <div>
+                <label class="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2">Password</label>
+                <input type="password" id="password"
+                    class="w-full p-4 bg-slate-50 border-none rounded-xl font-bold text-slate-800 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+                    placeholder="••••••••" required>
+            </div>
+
+            <button type="submit"
+                class="w-full py-4 bg-blue-600 text-white rounded-xl font-extrabold shadow-lg shadow-blue-200 hover:bg-blue-700 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                Sign In
+            </button>
+        </form>
+
+        <div id="error-msg"
+            class="hidden mt-6 p-4 bg-red-50 text-red-600 text-sm font-bold rounded-xl text-center border border-red-100">
+        </div>
+
+        <div class="mt-8 text-center text-xs text-slate-300 font-bold uppercase tracking-widest">
+            Secured by Internal Relational Engine
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Clear existing session
+            localStorage.removeItem('auth_token');
+            localStorage.removeItem('user_info');
+
+            $('#login-form').on('submit', async function (e) {
+                e.preventDefault();
+                const username = $('#username').val();
+                const password = $('#password').val();
+                const btn = $('button[type="submit"]');
+                const err = $('#error-msg');
+
+                btn.prop('disabled', true).text('Authenticating...');
+                err.addClass('hidden');
+
+                try {
+                    const response = await fetch('/api/login', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ username, password })
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        if (data.status === 'success') {
+                            localStorage.setItem('auth_token', data.token);
+                            localStorage.setItem('user_info', JSON.stringify({
+                                name: data.user,
+                                role: data.role,
+                                user_id: data.user_id,
+                                permissions: data.permissions
+                            }));
+                            window.location.href = '/portal/index.html';
+                        } else {
+                            throw new Error('Invalid response');
+                        }
+                    } else {
+                        err.text("Invalid Username or Password").removeClass('hidden');
+                        btn.prop('disabled', false).text('Sign In');
+                    }
+                } catch (e) {
+                    err.text("Connection Error. Is the backend running?").removeClass('hidden');
+                    btn.prop('disabled', false).text('Sign In');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+{
+    "name": "AssignmentConsultantRoles",
+    "doctype": "DocType",
+    "fields": [
+        {
+            "fieldname": "Index",
+            "label": "Index",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Assignment",
+            "label": "Assignment",
+            "fieldtype": "Link",
+            "options": "Consultancy_Assignments"
+        },
+        {
+            "fieldname": "Consultant",
+            "label": "Consultant",
+            "fieldtype": "Link",
+            "options": "Consultants"
+        },
+        {
+            "fieldname": "Role_EN",
+            "label": "Role En",
+            "fieldtype": "Link",
+            "options": "Roles"
+        },
+        {
+            "fieldname": "Role_AR",
+            "label": "Role Ar",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Engagement_Level",
+            "label": "Engagement Level",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "DutyStation",
+            "label": "Dutystation",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "StartDate_Assign",
+            "label": "Startdate Assign",
+            "fieldtype": "Date"
+        },
+        {
+            "fieldname": "EndDate",
+            "label": "Contract End Date",
+            "fieldtype": "Date"
+        },
+        {
+            "fieldname": "Status",
+            "label": "Status",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Planned_Days",
+            "label": "Planned Days",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Actual_Days",
+            "label": "Actual Days",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "DailyRate_Contract",
+            "label": "Dailyrate Contract",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Rate_Currency",
+            "label": "Rate Currency",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Fee_Planned",
+            "label": "Fee Planned",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Fee_Actual",
+            "label": "Fee Actual",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Timesheet_Required",
+            "label": "Timesheet Required",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Travel_Days",
+            "label": "Travel Days",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "PerDiem_Applied",
+            "label": "Perdiem Applied",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Performance_Rating",
+            "label": "Performance Rating",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Feedback_Notes",
+            "label": "Feedback Notes",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Is_LeadRole",
+            "label": "Is Leadrole",
+            "fieldtype": "Data"
+        }
+    ]
+}

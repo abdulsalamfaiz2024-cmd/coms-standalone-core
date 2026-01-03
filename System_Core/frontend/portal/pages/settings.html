@@ -1,0 +1,267 @@
+<div class="max-w-7xl mx-auto py-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-10">
+        <div>
+            <h1 class="text-4xl font-black text-gray-900 tracking-tight">System Settings</h1>
+            <p class="text-gray-400 font-bold uppercase text-[11px] tracking-widest mt-1">Configuration & Access Control
+            </p>
+        </div>
+    </div>
+
+    <!-- Tabs Header -->
+    <div class="flex border-b border-gray-200 mb-8 space-x-8">
+        <button onclick="switchTab('general')" id="tab-btn-general"
+            class="pb-4 text-sm font-bold uppercase tracking-wider text-primary-600 border-b-2 border-primary-600 transition-colors">
+            General & Branding
+        </button>
+        <button onclick="switchTab('users')" id="tab-btn-users"
+            class="pb-4 text-sm font-bold uppercase tracking-wider text-gray-400 hover:text-gray-600 border-b-2 border-transparent hover:border-gray-200 transition-colors">
+            User Management
+        </button>
+        <button onclick="switchTab('profile')" id="tab-btn-profile"
+            class="pb-4 text-sm font-bold uppercase tracking-wider text-gray-400 hover:text-gray-600 border-b-2 border-transparent hover:border-gray-200 transition-colors">
+            My Profile
+        </button>
+    </div>
+
+    <!-- TAB 1: GENERAL -->
+    <div id="tab-content-general" class="space-y-8">
+        <div class="bg-white rounded-[2rem] border border-gray-100 shadow-xl shadow-gray-200/50 p-10">
+            <h3 class="text-lg font-black text-gray-900 mb-6">System Identity</h3>
+            <div class="grid grid-cols-2 gap-8">
+                <div class="space-y-2">
+                    <label class="text-xs font-bold text-gray-400 uppercase tracking-widest">System Name</label>
+                    <input type="text" id="setting-system-name"
+                        class="w-full p-4 bg-gray-50 rounded-xl font-bold text-gray-900 border-none focus:ring-2 focus:ring-primary-400"
+                        placeholder="e.g. Consultancy OS">
+                </div>
+                <div class="space-y-2">
+                    <label class="text-xs font-bold text-gray-400 uppercase tracking-widest">System Logo</label>
+                    <div class="flex gap-4 items-center">
+                        <div
+                            class="w-16 h-16 bg-gray-50 rounded-xl flex items-center justify-center border border-gray-100 overflow-hidden relative group">
+                            <img id="logo-preview" src="" class="w-full h-full object-contain p-2 hidden">
+                            <span id="logo-placeholder" class="text-gray-300 text-xs">Logo</span>
+                        </div>
+                        <div class="flex-1">
+                            <input type="text" id="setting-system-logo"
+                                class="w-full p-4 bg-gray-50 rounded-xl font-bold text-gray-900 border-none mb-2"
+                                placeholder="Image URL or Upload..." readonly onclick="$('#logo-upload').click()">
+                            <input type="file" id="logo-upload" class="hidden" accept="image/*"
+                                onchange="uploadLogo(this)">
+                            <button onclick="$('#logo-upload').click()"
+                                class="text-xs font-bold text-primary-600 hover:underline">Upload New Image</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-lg font-black text-gray-900 mt-10 mb-6">Appearance</h3>
+            <div class="grid grid-cols-3 gap-6">
+                <!-- Theme Cards -->
+                <div onclick="setTheme('light')"
+                    class="cursor-pointer border-2 border-primary-500 rounded-xl p-4 bg-white hover:bg-gray-50 text-center">
+                    <div class="w-full h-20 bg-gray-100 rounded-lg mb-3 border border-gray-200"></div>
+                    <span class="font-bold text-primary-700">Light (Default)</span>
+                </div>
+                <div onclick="setTheme('dark')"
+                    class="cursor-pointer border-2 border-transparent hover:border-gray-300 rounded-xl p-4 bg-gray-900 text-center group">
+                    <div class="w-full h-20 bg-gray-800 rounded-lg mb-3 border border-gray-700"></div>
+                    <span class="font-bold text-gray-400 group-hover:text-white">Dark Mode</span>
+                </div>
+                <div onclick="setTheme('blue')"
+                    class="cursor-pointer border-2 border-transparent hover:border-gray-300 rounded-xl p-4 bg-blue-50 text-center group">
+                    <div class="w-full h-20 bg-blue-100 rounded-lg mb-3 border border-blue-200"></div>
+                    <span class="font-bold text-blue-800">Ocean Blue</span>
+                </div>
+            </div>
+
+            <div class="mt-10 flex justify-end">
+                <button onclick="saveGeneralSettings()"
+                    class="px-8 py-3 bg-gray-900 text-white font-bold rounded-xl shadow-lg hover:-translate-y-1 transition-transform">Save
+                    Configuration</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB 2: USERS -->
+    <div id="tab-content-users" class="hidden space-y-8">
+        <div class="flex justify-between items-center bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+            <h3 class="text-lg font-black text-gray-900"><span id="user-count">0</span> Registered Users</h3>
+            <button onclick="openUserModal()"
+                class="px-6 py-3 bg-primary-600 text-white font-bold rounded-xl shadow-lg shadow-primary-200 hover:bg-primary-700 transition-colors">+
+                Add User</button>
+        </div>
+
+        <div class="bg-white rounded-[2rem] border border-gray-100 shadow-xl shadow-gray-200/50 overflow-hidden">
+            <table class="w-full">
+                <thead class="bg-gray-50 border-b border-gray-100">
+                    <tr>
+                        <th class="text-left px-8 py-4 text-xs font-black text-gray-400 uppercase tracking-widest">User
+                        </th>
+                        <th class="text-left px-8 py-4 text-xs font-black text-gray-400 uppercase tracking-widest">Role
+                        </th>
+                        <th class="text-left px-8 py-4 text-xs font-black text-gray-400 uppercase tracking-widest">Email
+                        </th>
+                        <th class="text-right px-8 py-4 text-xs font-black text-gray-400 uppercase tracking-widest">
+                            Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="users-table-body">
+                    <!-- Dynamic Rows -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- TAB 3: PROFILE -->
+    <div id="tab-content-profile" class="hidden max-w-2xl mx-auto">
+        <div class="bg-white rounded-[2rem] border border-gray-100 shadow-xl shadow-gray-200/50 p-12 text-center">
+            <div
+                class="w-24 h-24 bg-primary-100 text-primary-600 rounded-full mx-auto flex items-center justify-center text-3xl font-black mb-6">
+                Me</div>
+            <h2 class="text-2xl font-black text-gray-900 mb-1" id="profile-fullname">Current User</h2>
+            <p class="text-gray-400 font-bold uppercase text-xs tracking-widest mb-8" id="profile-role">Admin</p>
+
+            <div class="text-left space-y-4 max-w-sm mx-auto">
+                <div>
+                    <label class="text-xs font-bold text-gray-400 uppercase tracking-widest">New Password</label>
+                    <input type="password" id="profile-new-pass" class="w-full p-4 bg-gray-50 rounded-xl font-bold"
+                        placeholder="••••••••">
+                </div>
+                <div>
+                    <label class="text-xs font-bold text-gray-400 uppercase tracking-widest">Confirm Password</label>
+                    <input type="password" id="profile-confirm-pass" class="w-full p-4 bg-gray-50 rounded-xl font-bold"
+                        placeholder="••••••••">
+                </div>
+                <button onclick="updatePassword()"
+                    class="w-full py-4 bg-primary-600 text-white font-bold rounded-xl shadow-lg mt-4 hover:shadow-primary-300 transition-all">Update
+                    Credentials</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add/Edit User Modal (Hidden by default) -->
+<div id="user-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center">
+    <div class="bg-white rounded-3xl p-10 w-full max-w-lg shadow-2xl transform transition-all scale-100">
+        <h3 class="text-2xl font-black text-gray-900 mb-6" id="modal-title">Add New User</h3>
+        <input type="hidden" id="modal-user-id">
+
+        <div class="space-y-4">
+            <div>
+                <label class="text-xs font-bold text-gray-400 uppercase tracking-widest">Full Name</label>
+                <input type="text" id="modal-fullname" class="w-full p-4 bg-gray-50 rounded-xl font-bold border-none">
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="text-xs font-bold text-gray-400 uppercase tracking-widest">Username</label>
+                    <input type="text" id="modal-username"
+                        class="w-full p-4 bg-gray-50 rounded-xl font-bold border-none">
+                </div>
+                <div>
+                    <label class="text-xs font-bold text-gray-400 uppercase tracking-widest">Role</label>
+                    <select id="modal-role" class="w-full p-4 bg-gray-50 rounded-xl font-bold border-none">
+                        <option value="System Admin">System Admin</option>
+                        <option value="Manager">Manager</option>
+                        <option value="Consultant">Consultant</option>
+                        <option value="Viewer">Viewer</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <label class="text-xs font-bold text-gray-400 uppercase tracking-widest">Email</label>
+                <input type="email" id="modal-email" class="w-full p-4 bg-gray-50 rounded-xl font-bold border-none">
+            </div>
+            <div>
+                <label class="text-xs font-bold text-gray-400 uppercase tracking-widest">Password</label>
+                <input type="password" id="modal-password"
+                    class="w-full p-4 bg-gray-50 rounded-xl font-bold border-none"
+                    placeholder="Leave blank to keep current">
+            </div>
+        </div>
+
+        <div class="flex gap-4 mt-8">
+            <button onclick="closeUserModal()"
+                class="flex-1 py-3 text-gray-500 font-bold hover:bg-gray-100 rounded-xl">Cancel</button>
+            <button onclick="saveUser()"
+                class="flex-1 py-3 bg-primary-600 text-white font-bold rounded-xl shadow-lg">Save User</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Local Tab Logic
+    window.switchTab = function (tab) {
+        ['general', 'users', 'profile'].forEach(t => {
+            $(`#tab-content-${t}`).addClass('hidden');
+            $(`#tab-btn-${t}`).removeClass('text-primary-600 border-primary-600').addClass('text-gray-400 border-transparent');
+        });
+        $(`#tab-content-${tab}`).removeClass('hidden');
+        $(`#tab-btn-${tab}`).addClass('text-primary-600 border-primary-600').removeClass('text-gray-400 border-transparent');
+
+        if (tab === 'general') { if (window.loadGeneralSettings) window.loadGeneralSettings(); }
+        if (tab === 'users') { if (window.loadUsers) window.loadUsers(); }
+    };
+
+    // Logo Upload Logic
+    window.uploadLogo = async function (input) {
+        const file = input.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = async () => {
+            try {
+                // 1. Upload the file to the server
+                const res = await fetch('/api/upload', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        filename: 'system_logo_' + file.name,
+                        content: reader.result,
+                        parent_doctype: 'Settings',
+                        parent_id: 'GLOBAL'
+                    })
+                }).then(r => r.json());
+
+                if (res.file_path) {
+                    // 2. Update the input field
+                    $('#setting-system-logo').val(res.file_path);
+                    $('#logo-preview').attr('src', res.file_path).removeClass('hidden');
+                    $('#logo-placeholder').addClass('hidden');
+
+                    // 3. SAVE TO DATABASE IMMEDIATELY
+                    await api.post('/api/settings/save', { 'system_logo': res.file_path });
+
+                    // 4. Apply to sidebar immediately
+                    if (window.applySystemSettings) await window.applySystemSettings();
+
+                    ui.toast("Logo uploaded and saved", "success");
+                }
+            } catch (e) {
+                console.error("Upload/Save Error:", e);
+                alert("Upload failed");
+            }
+        };
+    };
+
+    // Enhanced Load with Preview
+    window.renderLogo = function (url) {
+        if (url) {
+            $('#logo-preview').attr('src', url).removeClass('hidden');
+            $('#logo-placeholder').addClass('hidden');
+        }
+    }
+
+    // Initialize
+    if (window.loadGeneralSettings) {
+        // Wrap to add preview rendering
+        const originalLoad = window.loadGeneralSettings;
+        window.loadGeneralSettings = async function () {
+            await originalLoad();
+            renderLogo($('#setting-system-logo').val());
+        };
+        window.loadGeneralSettings();
+    }
+</script>

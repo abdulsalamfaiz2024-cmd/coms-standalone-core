@@ -1,0 +1,39 @@
+{
+    "name": "Expenses",
+    "doctype": "DocType",
+    "fields": [
+        {
+            "fieldname": "Assignment",
+            "label": "Assignment",
+            "fieldtype": "Link",
+            "options": "Consultancy_Assignments"
+        },
+        {
+            "fieldname": "Consultant",
+            "label": "Consultant",
+            "fieldtype": "Link",
+            "options": "Consultants"
+        },
+        {
+            "fieldname": "Category",
+            "label": "Category",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Amount",
+            "label": "Amount",
+            "fieldtype": "Currency"
+        },
+        {
+            "fieldname": "ReceiptImageURL",
+            "label": "Receiptimageurl",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Status",
+            "label": "Status",
+            "fieldtype": "Link",
+            "options": "Statuses"
+        }
+    ]
+}

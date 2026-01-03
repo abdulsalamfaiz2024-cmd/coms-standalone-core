@@ -1,0 +1,20 @@
+{
+    "doctype": "Report",
+    "is_standard": "Yes",
+    "module": "Consulting",
+    "name": "Deliverable Status Report",
+    "ref_doctype": "Deliverable",
+    "report_name": "Deliverable Status Report",
+    "report_type": "Script Report",
+    "roles": [
+        {
+            "role": "Projects Manager"
+        },
+        {
+            "role": "Projects User"
+        },
+        {
+            "role": "System Manager"
+        }
+    ]
+}

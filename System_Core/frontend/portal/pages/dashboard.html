@@ -1,0 +1,176 @@
+<div class="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+
+    <!-- 1. Welcome Section & Quick Actions -->
+    <div class="flex flex-col md:flex-row gap-6 items-stretch">
+        <!-- Welcome Card -->
+        <div
+            class="flex-1 bg-gradient-to-br from-primary-600 to-primary-800 rounded-[2rem] p-8 text-white shadow-2xl shadow-primary-200 relative overflow-hidden group">
+            <div
+                class="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full blur-3xl -mr-16 -mt-16 transition-all duration-1000 group-hover:opacity-10">
+            </div>
+            <div class="relative z-10 flex flex-col h-full justify-between">
+                <div>
+                    <h2 class="text-3xl font-black tracking-tight mb-2">Dashboard Overview</h2>
+                    <p class="text-primary-100 font-medium text-lg">Here's what's happening in your consultancy today.
+                    </p>
+                </div>
+                <div class="mt-8 flex gap-4">
+                    <span
+                        class="px-4 py-2 bg-white/10 backdrop-blur-md rounded-xl text-sm font-bold border border-white/20">
+                        <span id="date-display">...</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions Grid -->
+        <div class="flex-1 grid grid-cols-2 gap-4">
+            <!-- Add Task -->
+            <button onclick="window.location.hash='Tasks/Form'"
+                class="bg-white p-6 rounded-[2rem] border border-gray-100 shadow-xl shadow-gray-100/50 hover:shadow-2xl hover:shadow-primary-100/50 hover:border-primary-200 hover:-translate-y-1 transition-all group text-left">
+                <div
+                    class="w-12 h-12 bg-orange-50 rounded-2xl flex items-center justify-center text-orange-500 mb-4 group-hover:scale-110 transition-transform">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4">
+                        </path>
+                    </svg>
+                </div>
+                <h3 class="font-bold text-gray-900 group-hover:text-orange-600 transition-colors">Add Task</h3>
+                <p class="text-xs text-gray-400 mt-1 font-medium">Log a new operation</p>
+            </button>
+
+            <!-- Add Assignment -->
+            <button onclick="window.location.hash='Consultancy_Assignments/Form'"
+                class="bg-white p-6 rounded-[2rem] border border-gray-100 shadow-xl shadow-gray-100/50 hover:shadow-2xl hover:shadow-primary-100/50 hover:border-primary-200 hover:-translate-y-1 transition-all group text-left">
+                <div
+                    class="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-500 mb-4 group-hover:scale-110 transition-transform">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                        </path>
+                    </svg>
+                </div>
+                <h3 class="font-bold text-gray-900 group-hover:text-blue-600 transition-colors">New Assignment</h3>
+                <p class="text-xs text-gray-400 mt-1 font-medium">Kickoff a project</p>
+            </button>
+
+            <!-- Add Consultant -->
+            <button onclick="window.location.hash='Consultants/Form'"
+                class="bg-white p-6 rounded-[2rem] border border-gray-100 shadow-xl shadow-gray-100/50 hover:shadow-2xl hover:shadow-primary-100/50 hover:border-primary-200 hover:-translate-y-1 transition-all group text-left">
+                <div
+                    class="w-12 h-12 bg-purple-50 rounded-2xl flex items-center justify-center text-purple-500 mb-4 group-hover:scale-110 transition-transform">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                        </path>
+                    </svg>
+                </div>
+                <h3 class="font-bold text-gray-900 group-hover:text-purple-600 transition-colors">Add Consultant</h3>
+                <p class="text-xs text-gray-400 mt-1 font-medium">Onboard an expert</p>
+            </button>
+
+            <!-- Admin Settings -->
+            <button onclick="window.location.hash='Settings'"
+                class="bg-white p-6 rounded-[2rem] border border-gray-100 shadow-xl shadow-gray-100/50 hover:shadow-2xl hover:shadow-gray-400/20 hover:border-gray-300 hover:-translate-y-1 transition-all group text-left">
+                <div
+                    class="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-600 mb-4 group-hover:scale-110 transition-transform">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
+                        </path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="font-bold text-gray-900 group-hover:text-gray-700 transition-colors">Settings</h3>
+                <p class="text-xs text-gray-400 mt-1 font-medium">System config</p>
+            </button>
+
+            <!-- Active Metric -->
+            <div
+                class="bg-gray-900 p-6 rounded-[2rem] text-white shadow-xl flex flex-col justify-center items-center relative overflow-hidden">
+                <div
+                    class="absolute top-0 right-0 w-20 h-20 bg-primary-500 rounded-full blur-2xl opacity-20 -mr-5 -mt-5">
+                </div>
+                <h4 class="text-4xl font-black text-primary-400 mb-1" id="stat-active-projects">--</h4>
+                <p class="text-xs font-bold uppercase tracking-widest text-gray-400 text-center">Active Projects</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Analytics Section -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- Chart 1: Project Status -->
+        <div class="bg-white p-8 rounded-[2.5rem] border border-gray-100 shadow-xl shadow-gray-200/50 md:col-span-2">
+            <div class="flex items-center justify-between mb-8">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900">Project Distribution</h3>
+                    <p class="text-xs font-medium text-gray-400 mt-1">Assignments by operational stage</p>
+                </div>
+                <div class="p-2 bg-gray-50 rounded-xl">
+                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
+                    </svg>
+                </div>
+            </div>
+            <div class="h-64 w-full">
+                <canvas id="chart-stages"></canvas>
+            </div>
+        </div>
+
+        <!-- Chart 2: Quick Stats -->
+        <div class="bg-white p-8 rounded-[2.5rem] border border-gray-100 shadow-xl shadow-gray-200/50 flex flex-col">
+            <h3 class="text-xl font-bold text-gray-900 mb-6">Expertise Pool</h3>
+            <!-- Stat Row -->
+            <div class="flex flex-col gap-6 flex-1 justify-center">
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-2xl border border-gray-100">
+                    <span class="text-sm font-bold text-gray-500">Total Consultants</span>
+                    <span class="text-2xl font-black text-gray-900" id="stat-total-consultants">--</span>
+                </div>
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-2xl border border-gray-100">
+                    <span class="text-sm font-bold text-gray-500">Service Lines</span>
+                    <span class="text-2xl font-black text-gray-900" id="stat-total-services">--</span>
+                </div>
+                <div class="h-32 w-full mt-4">
+                    <canvas id="chart-consultants"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Recent Activity Feed (Top 5 Tasks) -->
+    <div class="bg-white p-8 rounded-[2.5rem] border border-gray-100 shadow-xl shadow-gray-200/50">
+        <div class="flex items-center justify-between mb-8">
+            <h3 class="text-xl font-bold text-gray-900">Operational Feed</h3>
+            <button onclick="window.location.hash='Tasks'"
+                class="text-xs font-bold text-primary-600 px-4 py-2 bg-primary-50 rounded-lg hover:bg-primary-100 transition-colors">View
+                All Tasks</button>
+        </div>
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr>
+                        <th class="text-[10px] font-black uppercase text-gray-400 tracking-widest pb-4 pl-4">Task Title
+                        </th>
+                        <th class="text-[10px] font-black uppercase text-gray-400 tracking-widest pb-4">Assigned To</th>
+                        <th class="text-[10px] font-black uppercase text-gray-400 tracking-widest pb-4">Due Date</th>
+                        <th class="text-[10px] font-black uppercase text-gray-400 tracking-widest pb-4 pr-4 text-right">
+                            Status</th>
+                    </tr>
+                </thead>
+                <tbody id="dashboard-tasks-table">
+                    <!-- Injected JS -->
+                    <tr>
+                        <td colspan="4" class="text-center py-10 text-gray-300 italic">Loading tasks...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

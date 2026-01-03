@@ -1,0 +1,32 @@
+{
+    "name": "Consultant_Education",
+    "doctype": "DocType",
+    "fields": [
+        {
+            "fieldname": "Consultant",
+            "label": "Consultant",
+            "fieldtype": "Link",
+            "options": "Consultants"
+        },
+        {
+            "fieldname": "Degree",
+            "label": "Degree",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "FieldOfStudy",
+            "label": "Fieldofstudy",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Institution",
+            "label": "Institution",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Year",
+            "label": "Year",
+            "fieldtype": "Data"
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+<div class="page-hero">
+    <div class="page-titles">
+        <h1 id="view-title">Loading...</h1>
+        <p id="view-subtitle">Querying database...</p>
+    </div>
+    <div class="flex gap-4" id="page-action-container">
+        <button id="refresh-btn" class="btn-action">Refresh Data</button>
+        <button class="btn-new" onclick="window.currentModule.openForm()">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path>
+            </svg>
+            Add Record
+        </button>
+    </div>
+</div>
+
+<div class="data-card">
+    <table class="sql-table" id="data-table">
+        <thead>
+            <tr id="table-head">
+                <!-- Headers injected here -->
+            </tr>
+        </thead>
+        <tbody id="table-body">
+            <!-- Data injected here -->
+        </tbody>
+    </table>
+    <div id="empty-state" class="hidden p-24 text-center text-slate-400 font-bold">
+        This table is currently empty in consultancy.db.
+    </div>
+</div>

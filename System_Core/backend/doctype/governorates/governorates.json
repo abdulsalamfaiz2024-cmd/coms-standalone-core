@@ -1,0 +1,22 @@
+{
+    "name": "Governorates",
+    "doctype": "DocType",
+    "fields": [
+        {
+            "fieldname": "Governorates",
+            "label": "Governorates",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Country",
+            "label": "Country",
+            "fieldtype": "Link",
+            "options": "Countries"
+        },
+        {
+            "fieldname": "Active",
+            "label": "Active",
+            "fieldtype": "Data"
+        }
+    ]
+}

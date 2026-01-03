@@ -1,0 +1,33 @@
+{
+    "name": "Consultant_Languages",
+    "doctype": "DocType",
+    "fields": [
+        {
+            "fieldname": "Consultant",
+            "label": "Consultant",
+            "fieldtype": "Link",
+            "options": "Consultants"
+        },
+        {
+            "fieldname": "Language",
+            "label": "Language",
+            "fieldtype": "Link",
+            "options": "Languages"
+        },
+        {
+            "fieldname": "ReadingLevel",
+            "label": "Readinglevel",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "WritingLevel",
+            "label": "Writinglevel",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "SpeakingLevel",
+            "label": "Speakinglevel",
+            "fieldtype": "Data"
+        }
+    ]
+}

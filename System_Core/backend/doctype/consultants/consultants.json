@@ -1,0 +1,62 @@
+{
+    "name": "Consultants",
+    "doctype": "DocType",
+    "fields": [
+        {
+            "fieldname": "Consultants_name",
+            "label": "Consultants Name",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Email",
+            "label": "Email",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Phone",
+            "label": "Phone",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "MainSector",
+            "label": "Mainsector",
+            "fieldtype": "Link",
+            "options": "Sectors"
+        },
+        {
+            "fieldname": "CVLink",
+            "label": "Cvlink",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Rating",
+            "label": "Rating",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Nationality",
+            "label": "Nationality",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Notes",
+            "label": "Notes",
+            "fieldtype": "Long Text"
+        },
+        {
+            "fieldname": "JobTitle",
+            "label": "Jobtitle",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Status",
+            "label": "Status",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "EndDate",
+            "label": "Contract End Date",
+            "fieldtype": "Date"
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+{
+    "name": "Sectors",
+    "doctype": "DocType",
+    "fields": [
+        {
+            "fieldname": "Title",
+            "label": "Sector Name",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "SectorCode",
+            "label": "Sector Code",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Description",
+            "label": "Description",
+            "fieldtype": "Long Text"
+        },
+        {
+            "fieldname": "Status",
+            "label": "Status",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "EndDate",
+            "label": "Deactivation Date",
+            "fieldtype": "Date"
+        }
+    ]
+}

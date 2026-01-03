@@ -1,0 +1,11 @@
+{
+    "name": "Roles",
+    "doctype": "DocType",
+    "fields": [
+        {
+            "fieldname": "Job_title",
+            "label": "Job Title",
+            "fieldtype": "Data"
+        }
+    ]
+}

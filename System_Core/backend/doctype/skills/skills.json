@@ -1,0 +1,21 @@
+{
+    "name": "Skills",
+    "doctype": "DocType",
+    "fields": [
+        {
+            "fieldname": "Title",
+            "label": "Title",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Category",
+            "label": "Category",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Active",
+            "label": "Active",
+            "fieldtype": "Data"
+        }
+    ]
+}

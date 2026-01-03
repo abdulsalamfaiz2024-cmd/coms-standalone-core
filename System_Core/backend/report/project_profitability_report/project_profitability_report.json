@@ -1,0 +1,22 @@
+{
+    "add_total_row": 1,
+    "columns": [],
+    "doctype": "Report",
+    "is_standard": "Yes",
+    "module": "Consulting",
+    "name": "Project Profitability Report",
+    "ref_doctype": "Project",
+    "report_name": "Project Profitability Report",
+    "report_type": "Script Report",
+    "roles": [
+        {
+            "role": "Projects Manager"
+        },
+        {
+            "role": "Accounts Manager"
+        },
+        {
+            "role": "System Manager"
+        }
+    ]
+}

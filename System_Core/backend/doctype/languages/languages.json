@@ -1,0 +1,16 @@
+{
+    "name": "Languages",
+    "doctype": "DocType",
+    "fields": [
+        {
+            "fieldname": "Title",
+            "label": "Title",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "ISOCode",
+            "label": "Isocode",
+            "fieldtype": "Data"
+        }
+    ]
+}

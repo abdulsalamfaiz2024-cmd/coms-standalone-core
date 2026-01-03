@@ -1,0 +1,47 @@
+{
+    "name": "Client_Contacts",
+    "doctype": "DocType",
+    "fields": [
+        {
+            "fieldname": "Client",
+            "label": "Client",
+            "fieldtype": "Link",
+            "options": "Clients"
+        },
+        {
+            "fieldname": "ContactName",
+            "label": "Contactname",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Position",
+            "label": "Position",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Email",
+            "label": "Email",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Phone",
+            "label": "Phone",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "IsPrimary",
+            "label": "Isprimary",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Status",
+            "label": "Status",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "EndDate",
+            "label": "Relationship End Date",
+            "fieldtype": "Date"
+        }
+    ]
+}

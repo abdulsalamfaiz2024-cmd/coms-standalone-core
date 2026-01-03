@@ -1,0 +1,15 @@
+<div class="modal-header">
+    <h2 id="modal-title">Edit Record</h2>
+    <button onclick="$('#modal').hide()" class="close-btn"
+        style="background: none; border: none; font-size: 2rem; color: #cbd5e1; cursor: pointer;">&times;</button>
+</div>
+<div class="modal-body" id="modal-form-container">
+    <form id="editor-form" class="form-grid">
+        <!-- Fields injected by core.js -->
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn-action" style="padding: 0.85rem 1.5rem; border: none; color: #64748b;"
+        onclick="$('#modal').hide()">Discard</button>
+    <button class="btn-new" onclick="window.currentModule.save()" style="box-shadow: none;">Commit to SQL</button>
+</div>

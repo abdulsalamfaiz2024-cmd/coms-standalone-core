@@ -1,0 +1,21 @@
+{
+    "name": "ServiceLines",
+    "doctype": "DocType",
+    "fields": [
+        {
+            "fieldname": "ServiceLines",
+            "label": "Servicelines",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Category",
+            "label": "Category",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Active",
+            "label": "Active",
+            "fieldtype": "Data"
+        }
+    ]
+}

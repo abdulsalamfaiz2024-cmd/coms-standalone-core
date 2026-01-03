@@ -1,0 +1,93 @@
+{
+    "name": "Consultancy_Assignments",
+    "doctype": "DocType",
+    "fields": [
+        {
+            "fieldname": "Title",
+            "label": "Project Title",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "A_Code",
+            "label": "Project Code",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Stage",
+            "label": "Project Stage",
+            "fieldtype": "Link",
+            "options": "Stages"
+        },
+        {
+            "fieldname": "Priority",
+            "label": "Priority",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Client",
+            "label": "Client",
+            "fieldtype": "Link",
+            "options": "Clients"
+        },
+        {
+            "fieldname": "Funder",
+            "label": "Funder",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "ContractRef",
+            "label": "Contract Reference",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Status",
+            "label": "Status",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "LeadConsultant",
+            "label": "Lead Consultant",
+            "fieldtype": "Link",
+            "options": "Consultants"
+        },
+        {
+            "fieldname": "Sector",
+            "label": "Sector",
+            "fieldtype": "Link",
+            "options": "Sectors"
+        },
+        {
+            "fieldname": "ServiceLine",
+            "label": "Service Line",
+            "fieldtype": "Link",
+            "options": "ServiceLines"
+        },
+        {
+            "fieldname": "Country",
+            "label": "Country",
+            "fieldtype": "Link",
+            "options": "Countries"
+        },
+        {
+            "fieldname": "Governorate",
+            "label": "Governorate",
+            "fieldtype": "Link",
+            "options": "Governorates"
+        },
+        {
+            "fieldname": "City",
+            "label": "City",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "StartDate",
+            "label": "Start Date",
+            "fieldtype": "Date"
+        },
+        {
+            "fieldname": "EndDate",
+            "label": "End Date",
+            "fieldtype": "Date"
+        }
+    ]
+}

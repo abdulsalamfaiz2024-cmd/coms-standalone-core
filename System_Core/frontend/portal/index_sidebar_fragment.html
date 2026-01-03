@@ -1,0 +1,17 @@
+<div class="p-6 border-t border-gray-100/50">
+    <div class="flex items-center gap-4 cursor-pointer hover:bg-gray-50 p-2 rounded-xl transition-colors">
+        <div
+            class="w-10 h-10 rounded-full bg-gradient-to-tr from-primary-600 to-indigo-600 flex items-center justify-center text-white font-bold shadow-lg shadow-primary-200">
+            SA
+        </div>
+        <div>
+            <h4 class="font-bold text-gray-900 text-sm" id="user-name-display">System Admin</h4>
+            <p class="text-xs text-gray-400 font-medium" id="user-role-display">Administrator</p>
+        </div>
+    </div>
+
+    <button onclick="localStorage.clear(); window.location.href='/portal/login.html'"
+        class="mt-4 w-full py-2 text-xs font-bold text-red-400 bg-red-50 rounded-lg hover:bg-red-100 transition-colors">
+        Sign Out
+    </button>
+</div>

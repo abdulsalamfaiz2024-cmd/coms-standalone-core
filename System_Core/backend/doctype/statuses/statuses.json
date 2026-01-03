@@ -1,0 +1,21 @@
+{
+    "name": "Statuses",
+    "doctype": "DocType",
+    "fields": [
+        {
+            "fieldname": "Statuses",
+            "label": "Statuses",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "SortOrder",
+            "label": "Sortorder",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Active",
+            "label": "Active",
+            "fieldtype": "Data"
+        }
+    ]
+}

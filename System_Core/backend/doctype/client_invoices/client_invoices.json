@@ -1,0 +1,43 @@
+{
+    "name": "Client_Invoices",
+    "doctype": "DocType",
+    "fields": [
+        {
+            "fieldname": "Assignment",
+            "label": "Assignment",
+            "fieldtype": "Link",
+            "options": "Consultancy_Assignments"
+        },
+        {
+            "fieldname": "InvoiceNumber",
+            "label": "Invoicenumber",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "DateIssued",
+            "label": "Dateissued",
+            "fieldtype": "Date"
+        },
+        {
+            "fieldname": "Amount",
+            "label": "Amount",
+            "fieldtype": "Currency"
+        },
+        {
+            "fieldname": "Currency",
+            "label": "Currency",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Status",
+            "label": "Status",
+            "fieldtype": "Link",
+            "options": "Statuses"
+        },
+        {
+            "fieldname": "PaymentDate",
+            "label": "Paymentdate",
+            "fieldtype": "Date"
+        }
+    ]
+}

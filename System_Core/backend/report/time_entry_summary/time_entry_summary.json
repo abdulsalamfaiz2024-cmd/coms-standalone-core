@@ -1,0 +1,20 @@
+{
+    "doctype": "Report",
+    "is_standard": "Yes",
+    "module": "Consulting",
+    "name": "Time Entry Summary",
+    "ref_doctype": "Timesheet",
+    "report_name": "Time Entry Summary",
+    "report_type": "Script Report",
+    "roles": [
+        {
+            "role": "Projects Manager"
+        },
+        {
+            "role": "Projects User"
+        },
+        {
+            "role": "System Manager"
+        }
+    ]
+}

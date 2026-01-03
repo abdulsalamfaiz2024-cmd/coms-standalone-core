@@ -1,0 +1,28 @@
+{
+    "name": "Consultant_Skills",
+    "doctype": "DocType",
+    "fields": [
+        {
+            "fieldname": "Consultant",
+            "label": "Consultant",
+            "fieldtype": "Link",
+            "options": "Consultants"
+        },
+        {
+            "fieldname": "Skill",
+            "label": "Skill",
+            "fieldtype": "Link",
+            "options": "Skills"
+        },
+        {
+            "fieldname": "Proficiency_1_5",
+            "label": "Proficiency 1 5",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "YearsExperience",
+            "label": "Yearsexperience",
+            "fieldtype": "Data"
+        }
+    ]
+}

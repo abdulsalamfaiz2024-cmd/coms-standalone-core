@@ -1,0 +1,28 @@
+{
+    "name": "Consultant_Availability",
+    "doctype": "DocType",
+    "fields": [
+        {
+            "fieldname": "Consultant",
+            "label": "Consultant",
+            "fieldtype": "Link",
+            "options": "Consultants"
+        },
+        {
+            "fieldname": "StartDate",
+            "label": "Startdate",
+            "fieldtype": "Date"
+        },
+        {
+            "fieldname": "EndDate",
+            "label": "Enddate",
+            "fieldtype": "Date"
+        },
+        {
+            "fieldname": "Status",
+            "label": "Status",
+            "fieldtype": "Link",
+            "options": "Statuses"
+        }
+    ]
+}

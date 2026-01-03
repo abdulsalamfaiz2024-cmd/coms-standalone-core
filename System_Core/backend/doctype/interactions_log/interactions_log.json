@@ -1,0 +1,32 @@
+{
+    "name": "Interactions_Log",
+    "doctype": "DocType",
+    "fields": [
+        {
+            "fieldname": "Client",
+            "label": "Client",
+            "fieldtype": "Link",
+            "options": "Clients"
+        },
+        {
+            "fieldname": "InteractionDate",
+            "label": "Interactiondate",
+            "fieldtype": "Date"
+        },
+        {
+            "fieldname": "Type",
+            "label": "Type",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Notes",
+            "label": "Notes",
+            "fieldtype": "Long Text"
+        },
+        {
+            "fieldname": "NextAction",
+            "label": "Nextaction",
+            "fieldtype": "Data"
+        }
+    ]
+}

@@ -1,0 +1,43 @@
+{
+    "name": "Deliverables",
+    "doctype": "DocType",
+    "fields": [
+        {
+            "fieldname": "Assignment",
+            "label": "Assignment",
+            "fieldtype": "Link",
+            "options": "Consultancy_Assignments"
+        },
+        {
+            "fieldname": "Title",
+            "label": "Title",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Description",
+            "label": "Description",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "DueDate",
+            "label": "Duedate",
+            "fieldtype": "Date"
+        },
+        {
+            "fieldname": "SubmissionDate",
+            "label": "Submissiondate",
+            "fieldtype": "Date"
+        },
+        {
+            "fieldname": "Status",
+            "label": "Status",
+            "fieldtype": "Link",
+            "options": "Statuses"
+        },
+        {
+            "fieldname": "PaymentPercentage",
+            "label": "Paymentpercentage",
+            "fieldtype": "Data"
+        }
+    ]
+}

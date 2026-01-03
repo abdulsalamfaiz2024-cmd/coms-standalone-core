@@ -1,0 +1,20 @@
+{
+    "doctype": "Report",
+    "is_standard": "Yes",
+    "module": "Consulting",
+    "name": "Contract Compliance Report",
+    "ref_doctype": "Client Contract",
+    "report_name": "Contract Compliance Report",
+    "report_type": "Script Report",
+    "roles": [
+        {
+            "role": "Projects Manager"
+        },
+        {
+            "role": "Accounts Manager"
+        },
+        {
+            "role": "System Manager"
+        }
+    ]
+}

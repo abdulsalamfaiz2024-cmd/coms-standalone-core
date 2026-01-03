@@ -1,0 +1,76 @@
+<div class="flex flex-col gap-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+    <!-- Header -->
+    <div class="flex items-center justify-between">
+        <div>
+            <h1 class="text-3xl font-black text-gray-900 tracking-tight">Strategic Clients</h1>
+            <p class="text-gray-400 font-bold uppercase text-[11px] tracking-widest mt-1">Portfolio & Relationship
+                Management</p>
+        </div>
+        <div id="page-action-container" class="flex items-center gap-3">
+            <button
+                class="btn-new-entity px-6 py-3 bg-primary-600 text-white font-extrabold rounded-xl shadow-lg shadow-primary-200 hover:bg-primary-700 transition-all flex items-center gap-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"></path>
+                </svg>
+                Add new Client
+            </button>
+        </div>
+    </div>
+
+    <!-- Analytics Section -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div
+            class="bg-white p-6 rounded-[2rem] border border-gray-100 shadow-xl shadow-gray-200/50 flex flex-col justify-between">
+            <div class="flex justify-between items-start">
+                <div>
+                    <p class="text-[10px] font-black uppercase text-gray-400 tracking-widest">Total Clients</p>
+                    <h2 class="text-4xl font-black text-gray-900 mt-1" id="stat-total-clients">--</h2>
+                </div>
+                <div class="p-3 bg-blue-50 rounded-xl text-blue-500">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
+                        </path>
+                    </svg>
+                </div>
+            </div>
+            <div class="h-2 bg-gray-100 rounded-full mt-4 overflow-hidden">
+                <div class="h-full bg-blue-500 w-3/4"></div>
+            </div>
+        </div>
+
+        <div
+            class="bg-white p-6 rounded-[2rem] border border-gray-100 shadow-xl shadow-gray-200/50 md:col-span-2 flex items-center gap-8">
+            <div class="w-32 h-32 shrink-0">
+                <canvas id="chart-client-types"></canvas>
+            </div>
+            <div>
+                <h3 class="text-lg font-bold text-gray-900">Portfolio Distribution</h3>
+                <p class="text-xs text-gray-500 mb-4">Breakdown of client organization types.</p>
+                <div id="client-legend" class="flex gap-4 flex-wrap"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Smart Grid (Cards) -->
+    <div>
+        <div class="flex items-center justify-between mb-6">
+            <h3 class="text-xl font-bold text-gray-900">Client Directory</h3>
+            <div class="relative w-64">
+                <input type="text" id="global-search" onkeyup="if(event.key==='Enter') engine.refreshList(this.value)"
+                    placeholder="Search clients..."
+                    class="block w-full px-4 py-2 pl-10 text-xs font-bold text-gray-900 border border-gray-200 rounded-xl bg-gray-50 focus:ring-primary-500 focus:border-primary-500">
+                <svg class="w-4 h-4 text-gray-400 absolute left-3 top-2.5" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Cards Container -->
+        <div id="card-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Cards Injected via JS -->
+        </div>
+    </div>
+</div>

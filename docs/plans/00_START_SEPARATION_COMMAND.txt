@@ -1,0 +1,33 @@
+# INSTRUCTIONS FOR AI AGENT: STARTING SYSTEM SEPARATION
+
+**PROJECT CONTEXT:**
+We are implementing the "System Separation" phase for the COMS (Consulting Operations & Management System) project.
+The Core System (Back-end logic, Doctypes, Fields) has ALREADY been built and implemented.
+We are now building a specialized **Consultant Portal** that sits on top of this existing system.
+
+**CRITICAL ARCHITECTURE RULE:**
+We are using a **"Remote Control" Architecture**.
+- The Portal (S2-S4) is just a UI layer.
+- It MUST interact with the **existing ERPNext/COMS Engine** (built in `Customize the system/`).
+- **NEVER** create duplicate tables or business logic. Always wrap/call the existing code.
+
+**YOUR TASK:**
+We need to begin **Phase S1: Security & Roles**. This is the foundation that secures the backend before we build the frontend.
+
+**STEP 1: REQUIRED READING**
+Before doing anything, you MUST read these files in this exact order to understand the plan:
+
+1.  `d:\erpnext\System_Separation_Plans\01_Separation_Master_Plan.md` (The Overview)
+2.  `d:\erpnext\System_Separation_Plans\Separation_Strategy_Analysis.md` (The "Bridge" between Build & Separation - CRITICAL)
+3.  `d:\erpnext\System_Separation_Plans\S1_Security_And_Roles_Phase.md` (The Phase you will execute)
+
+**STEP 2: EXECUTION**
+Once you have read the files, you are authorized to begin **Phase S1 Implementation**.
+Follow the "Detailed Implementation Plan" in `S1_Security_And_Roles_Phase.md`.
+
+*   Create the Role scripts.
+*   Create the Permission Matrix.
+*   Create the API Endpoint Structure (wrappers).
+
+**CONFIRMATION:**
+Please confirm when you have read the files and are ready to generate the Phase S1 code.

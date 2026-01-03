@@ -1,0 +1,26 @@
+{
+    "name": "Countries",
+    "doctype": "DocType",
+    "fields": [
+        {
+            "fieldname": "country_name",
+            "label": "Country Name",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "ISOCode",
+            "label": "Isocode",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Region",
+            "label": "Region",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Active",
+            "label": "Active",
+            "fieldtype": "Data"
+        }
+    ]
+}

@@ -1,0 +1,38 @@
+{
+    "name": "Consultant_Invoices",
+    "doctype": "DocType",
+    "fields": [
+        {
+            "fieldname": "Consultant",
+            "label": "Consultant",
+            "fieldtype": "Link",
+            "options": "Consultants"
+        },
+        {
+            "fieldname": "Assignment",
+            "label": "Assignment",
+            "fieldtype": "Link",
+            "options": "Consultancy_Assignments"
+        },
+        {
+            "fieldname": "PeriodStart",
+            "label": "Periodstart",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "PeriodEnd",
+            "label": "Periodend",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "TotalAmount",
+            "label": "Totalamount",
+            "fieldtype": "Currency"
+        },
+        {
+            "fieldname": "ApprovalStatus",
+            "label": "Approvalstatus",
+            "fieldtype": "Data"
+        }
+    ]
+}

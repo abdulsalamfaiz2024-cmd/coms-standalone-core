@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultancy OS | Enterprise Engine</title>
+
+    <!-- Modern UI Stack -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] },
+                    colors: {
+                        primary: { "50": "#eff6ff", "100": "#dbeafe", "200": "#bfdbfe", "300": "#93c5fd", "400": "#60a5fa", "500": "#3b82f6", "600": "#2563eb", "700": "#1d4ed8", "800": "#1e40af", "900": "#1e3a8a", "950": "#172554" }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f8fafc;
+            overflow: hidden;
+        }
+
+        .sidebar-scroll::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .sidebar-scroll::-webkit-scrollbar-thumb {
+            background: #e2e8f0;
+            border-radius: 10px;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(241, 245, 249, 1);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 dark:bg-gray-900">
+
+    <!-- Navigation Drawer -->
+    <aside id="sidebar"
+        class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
+        aria-label="Sidebar">
+        <div class="h-full px-4 py-6 overflow-y-auto bg-white dark:bg-gray-800 sidebar-scroll">
+            <div class="flex items-center gap-3 mb-10 px-2 cursor-pointer" onclick="window.location.hash='Dashboard'">
+                <div id="sidebar-logo-letter"
+                    class="w-10 h-10 bg-primary-600 rounded-xl flex items-center justify-center text-white font-black text-xl shadow-lg shadow-primary-200 hover:scale-105 transition-transform">
+                    C</div>
+                <img id="sidebar-logo-image" src=""
+                    class="w-10 h-10 rounded-xl object-contain hidden hover:scale-105 transition-transform">
+                <span id="sidebar-system-name"
+                    class="text-xl font-extrabold text-gray-900 dark:text-white tracking-tight">Consultancy OS</span>
+            </div>
+
+            <ul class="space-y-1 font-medium">
+                <li><a href="#Dashboard"
+                        class="flex items-center p-3 text-gray-700 rounded-xl hover:bg-primary-50 hover:text-primary-600 transition-all group">
+                        <svg class="w-6 h-6 text-gray-400 group-hover:text-primary-600 transition-colors" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z">
+                            </path>
+                        </svg>
+                        <span class="ml-3 font-semibold">Dashboard</span>
+                    </a></li>
+                <!-- I. OPERATIONS (High Frequency) -->
+                <li>
+                    <p class="text-[10px] font-extrabold text-primary-600 uppercase tracking-[0.2em] px-3 mb-2 mt-4">
+                        Operations Control</p>
+                </li>
+                <li><a href="#Consultancy_Assignments"
+                        class="flex items-center p-3 text-gray-700 rounded-xl hover:bg-primary-50 hover:text-primary-600 transition-all group active-nav">
+                        <span class="ml-3 font-semibold">Project Assignments</span>
+                    </a></li>
+                <li><a href="#Tasks"
+                        class="flex items-center p-3 text-gray-700 rounded-xl hover:bg-primary-50 hover:text-primary-600 transition-all group">
+                        <span class="ml-3 font-semibold">Tasks & Operations</span>
+                    </a></li>
+                <li><a href="#Deliverables"
+                        class="flex items-center p-3 text-gray-700 rounded-xl hover:bg-primary-50 hover:text-primary-600 transition-all group">
+                        <span class="ml-3 font-semibold">Deliverables Tracking</span>
+                    </a></li>
+                <li><a href="#Interactions_Log"
+                        class="flex items-center p-3 text-gray-700 rounded-xl hover:bg-primary-50 hover:text-primary-600 transition-all group">
+                        <span class="ml-3 font-semibold">Interactions Log</span>
+                    </a></li>
+
+                <!-- II. STAKEHOLDERS -->
+                <li>
+                    <p class="text-[10px] font-extrabold text-gray-400 uppercase tracking-[0.2em] px-3 mb-2 mt-8">
+                        Stakeholders</p>
+                </li>
+                <li><a href="#Clients"
+                        class="flex items-center p-3 text-gray-700 rounded-xl hover:bg-primary-50 hover:text-primary-600 transition-all group">
+                        <span class="ml-3 font-semibold">Client Directory</span>
+                    </a></li>
+                <li><a href="#Consultants"
+                        class="flex items-center p-3 text-gray-700 rounded-xl hover:bg-primary-50 hover:text-primary-600 transition-all group">
+                        <span class="ml-3 font-semibold">Consultant Directory</span>
+                    </a></li>
+                <li><a href="#Consultant_Availability"
+                        class="flex items-center p-3 text-gray-700 rounded-xl hover:bg-primary-50 hover:text-primary-600 transition-all group">
+                        <span class="ml-3 font-semibold">Availability Matrix</span>
+                    </a></li>
+                <li><a href="#Client_Contacts"
+                        class="flex items-center p-3 text-gray-700 rounded-xl hover:bg-primary-50 hover:text-primary-600 transition-all group">
+                        <span class="ml-3 font-semibold">Contact Personas</span>
+                    </a></li>
+
+                <!-- III. LEGAL & FINANCE -->
+                <li>
+                    <p class="text-[10px] font-extrabold text-gray-400 uppercase tracking-[0.2em] px-3 mb-2 mt-8">Legal
+                        & Finance</p>
+                </li>
+                <li><a href="#Consultancy_Assignments"
+                        class="flex items-center p-3 text-gray-700 rounded-xl hover:bg-primary-50 hover:text-primary-600 transition-all group">
+                        <span class="ml-3 font-semibold">Client Contracts</span>
+                    </a></li>
+                <li><a href="#AssignmentConsultantRoles"
+                        class="flex items-center p-3 text-gray-700 rounded-xl hover:bg-primary-50 hover:text-primary-600 transition-all group">
+                        <span class="ml-3 font-semibold">Consultant Contracts</span>
+                    </a></li>
+                <li><a href="#Client_Invoices"
+                        class="flex items-center p-3 text-gray-700 rounded-xl hover:bg-primary-50 hover:text-primary-600 transition-all group">
+                        <span class="ml-3 font-semibold">AR Invoices</span>
+                    </a></li>
+                <li><a href="#Consultant_Invoices"
+                        class="flex items-center p-3 text-gray-700 rounded-xl hover:bg-primary-50 hover:text-primary-600 transition-all group">
+                        <span class="ml-3 font-semibold">AP Invoices</span>
+                    </a></li>
+                <li><a href="#Expenses"
+                        class="flex items-center p-3 text-gray-700 rounded-xl hover:bg-primary-50 hover:text-primary-600 transition-all group">
+                        <span class="ml-3 font-semibold">Business Expenses</span>
+                    </a></li>
+
+                <!-- IV. ASSETS & COMPETENCIES -->
+                <li>
+                    <p class="text-[10px] font-extrabold text-gray-400 uppercase tracking-[0.2em] px-3 mb-2 mt-8">Talent
+                        & Expertise</p>
+                </li>
+                <li><a href="#Skills"
+                        class="flex items-center p-3 text-gray-700 rounded-xl hover:bg-primary-50 hover:text-primary-600 transition-all group">
+                        <span class="ml-3 font-semibold">Expert Skills</span>
+                    </a></li>
+                <li><a href="#Languages"
+                        class="flex items-center p-3 text-gray-700 rounded-xl hover:bg-primary-50 hover:text-primary-600 transition-all group">
+                        <span class="ml-3 font-semibold">Linguistic Data</span>
+                    </a></li>
+                <li><a href="#Consultant_Education"
+                        class="flex items-center p-3 text-gray-700 rounded-xl hover:bg-primary-50 hover:text-primary-600 transition-all group">
+                        <span class="ml-3 font-semibold">Education Records</span>
+                    </a></li>
+
+                <!-- V. INFRASTRUCTURE (Configuration) -->
+                <li>
+                    <p class="text-[10px] font-extrabold text-gray-400 uppercase tracking-[0.2em] px-3 mb-2 mt-8">
+                        Configuration</p>
+                </li>
+                <li><a href="#Sectors"
+                        class="flex items-center p-3 text-gray-700 rounded-xl hover:bg-primary-50 hover:text-primary-600 transition-all group">
+                        <span class="ml-3 font-semibold">Civil Society Sectors</span>
+                    </a></li>
+                <li><a href="#ServiceLines"
+                        class="flex items-center p-3 text-gray-700 rounded-xl hover:bg-primary-50 hover:text-primary-600 transition-all group">
+                        <span class="ml-3 font-semibold">Service Offerings</span>
+                    </a></li>
+                <li><a href="#Countries"
+                        class="flex items-center p-3 text-gray-700 rounded-xl hover:bg-primary-50 hover:text-primary-600 transition-all group">
+                        <span class="ml-3 font-semibold">Global Locations</span>
+                    </a></li>
+                <li><a href="#Governorates"
+                        class="flex items-center p-3 text-gray-700 rounded-xl hover:bg-primary-50 hover:text-primary-600 transition-all group">
+                        <span class="ml-3 font-semibold">Regional Indices</span>
+                    </a></li>
+                <li><a href="#Stages"
+                        class="flex items-center p-3 text-gray-700 rounded-xl hover:bg-primary-50 hover:text-primary-600 transition-all group">
+                        <span class="ml-3 font-semibold">Workflow Stages</span>
+                    </a></li>
+                <li><a href="#Statuses"
+                        class="flex items-center p-3 text-gray-700 rounded-xl hover:bg-primary-50 hover:text-primary-600 transition-all group">
+                        <span class="ml-3 font-semibold">Global Statuses</span>
+                    </a></li>
+                <li><a href="#Roles"
+                        class="flex items-center p-3 text-gray-700 rounded-xl hover:bg-primary-50 hover:text-primary-600 transition-all group">
+                        <span class="ml-3 font-semibold">Enterprise Roles</span>
+                    </a></li>
+            </ul>
+
+            <div class="mt-auto pt-10 px-2">
+                <div class="p-6 border-t border-gray-100/50">
+                    <div
+                        class="flex items-center gap-4 cursor-pointer hover:bg-gray-50 p-2 rounded-xl transition-colors">
+                        <div
+                            class="w-10 h-10 rounded-full bg-gradient-to-tr from-primary-600 to-indigo-600 flex items-center justify-center text-white font-bold shadow-lg shadow-primary-200">
+                            SA
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-sm" id="user-name-display">System Admin</h4>
+                            <p class="text-xs text-gray-400 font-medium" id="user-role-display">Administrator</p>
+                        </div>
+                    </div>
+
+                    <button onclick="localStorage.clear(); window.location.href='/portal/login.html'"
+                        class="mt-4 w-full py-2 text-xs font-bold text-red-400 bg-red-50 rounded-lg hover:bg-red-100 transition-colors">
+                        Sign Out
+                    </button>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content Wrapper -->
+    <div class="sm:ml-64 flex flex-col h-screen">
+
+        <!-- Smart Header -->
+        <header class="h-20 bg-white border-b border-gray-100 flex items-center justify-between px-8 shrink-0">
+            <nav class="flex" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                    <li class="inline-flex items-center">
+                        <span class="text-sm font-bold text-gray-400">Enterprise Engine</span>
+                    </li>
+                    <li>
+                        <div class="flex items-center">
+                            <svg class="w-3 h-3 text-gray-400 mx-1" aria-hidden="true" fill="none" viewBox="0 0 6 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m1 9 4-4-4-4" />
+                            </svg>
+                            <span id="current-page-label"
+                                class="ml-1 text-sm font-extrabold text-gray-900 md:ml-2">Dashboard</span>
+                        </div>
+                    </li>
+                </ol>
+            </nav>
+            <div class="flex items-center gap-4">
+                <button type="button" class="text-gray-500 hover:text-primary-600 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Viewport -->
+        <main id="app-viewport" class="flex-1 overflow-y-auto p-10 bg-gray-50">
+            <!-- Dynamic Content Injected Here -->
+        </main>
+    </div>
+
+    <!-- Unified Toast Notifications -->
+    <div id="toast-container" class="fixed bottom-10 right-10 z-[100] space-y-3"></div>
+
+    <!-- Core Engine - Modular Stack (Risk Mitigation) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+
+    <!-- Protected Modules -->
+    <script src="/portal/js/api_service.js?v=5.1"></script>
+    <script src="/portal/js/ui_system.js?v=5.1"></script>
+    <script src="/portal/js/enterprise_engine.js?v=5.1"></script>
+
+    <!-- Bootstrapper -->
+    <script src="/portal/js/core.js?v=5.1"></script>
+</body>
+
+</html>

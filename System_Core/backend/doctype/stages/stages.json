@@ -1,0 +1,21 @@
+{
+    "name": "Stages",
+    "doctype": "DocType",
+    "fields": [
+        {
+            "fieldname": "Stages",
+            "label": "Stages",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "SortOrder",
+            "label": "Sortorder",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Active",
+            "label": "Active",
+            "fieldtype": "Data"
+        }
+    ]
+}

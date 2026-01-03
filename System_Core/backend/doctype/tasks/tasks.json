@@ -1,0 +1,70 @@
+{
+    "name": "Tasks",
+    "doctype": "DocType",
+    "fields": [
+        {
+            "fieldname": "Assignment",
+            "label": "Assignment",
+            "fieldtype": "Link",
+            "options": "Consultancy_Assignments"
+        },
+        {
+            "fieldname": "Consultant",
+            "label": "Consultant",
+            "fieldtype": "Link",
+            "options": "Consultants"
+        },
+        {
+            "fieldname": "Title",
+            "label": "Title",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "DueDate",
+            "label": "Duedate",
+            "fieldtype": "Date"
+        },
+        {
+            "fieldname": "Contract_Ref",
+            "label": "Contract / Role Ref",
+            "fieldtype": "Link",
+            "options": "AssignmentConsultantRoles"
+        },
+        {
+            "fieldname": "StartDate",
+            "label": "Start Date",
+            "fieldtype": "Date"
+        },
+        {
+            "fieldname": "EndDate",
+            "label": "End Date",
+            "fieldtype": "Date"
+        },
+        {
+            "fieldname": "TaskDetails",
+            "label": "Detailed Description",
+            "fieldtype": "Long Text"
+        },
+        {
+            "fieldname": "Sessions",
+            "label": "No. of Sessions",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Hours",
+            "label": "Total Hours",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Days",
+            "label": "Total Days",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Status",
+            "label": "Status",
+            "fieldtype": "Link",
+            "options": "Statuses"
+        }
+    ]
+}
