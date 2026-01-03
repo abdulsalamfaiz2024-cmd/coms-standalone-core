@@ -251,6 +251,8 @@ class ConsultancyRequestHandler(http.server.SimpleHTTPRequestHandler):
                 post_data = self.rfile.read(content_length)
                 auth_data = json.loads(post_data)
                 
+                import hashlib
+                
                 username = auth_data.get('username')
                 password = auth_data.get('password')
                 
