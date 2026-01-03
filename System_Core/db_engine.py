@@ -4,7 +4,9 @@ import json
 import uuid
 from datetime import datetime
 
-DB_PATH = "d:/Custom_System_Copy/System_Core/consultancy.db"
+import os
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_PATH = os.path.join(BASE_DIR, "consultancy.db")
 
 # --- AUDIT LOGGING SYSTEM ---
 

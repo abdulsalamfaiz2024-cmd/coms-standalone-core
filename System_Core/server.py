@@ -280,6 +280,43 @@ class ConsultancyRequestHandler(http.server.SimpleHTTPRequestHandler):
                 self.send_error(500, f"Login Error: {str(e)}")
                 return
 
+        # EMERGENCY ADMIN RESET (Remove before production final)
+        if self.path == "/api/emergency_reset":
+            try:
+                import hashlib
+                import uuid
+                
+                # 1. Create Users Table if missing
+                conn = db_engine.get_connection()
+                cursor = conn.cursor()
+                cursor.execute("""
+                    CREATE TABLE IF NOT EXISTS "Users" (
+                        "id" TEXT PRIMARY KEY,
+                        "username" TEXT UNIQUE,
+                        "password_hash" TEXT,
+                        "full_name" TEXT,
+                        "role" TEXT,
+                        "email" TEXT
+                    );
+                """)
+                
+                # 2. Reset Admin
+                pwd_hash = hashlib.sha256("admin123".encode()).hexdigest()
+                cursor.execute("DELETE FROM Users WHERE username='admin'")
+                cursor.execute("""
+                    INSERT INTO Users (id, username, password_hash, full_name, role)
+                    VALUES (?, ?, ?, ?, ?)
+                """, (str(uuid.uuid4()), "admin", pwd_hash, "System Admin", "Administrator"))
+                
+                conn.commit()
+                conn.close()
+                
+                self.send_json({"status": "success", "message": "Admin Reset to: admin / admin123"})
+                return
+            except Exception as e:
+                self.send_error(500, f"Reset Error: {str(e)}")
+                return
+
         # 2. API: Delete
         if self.path == "/api/delete":
             try:
