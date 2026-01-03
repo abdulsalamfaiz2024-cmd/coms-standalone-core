@@ -252,6 +252,7 @@ class ConsultancyRequestHandler(http.server.SimpleHTTPRequestHandler):
                 auth_data = json.loads(post_data)
                 
                 import hashlib
+                import uuid
                 
                 username = auth_data.get('username')
                 password = auth_data.get('password')
