@@ -513,12 +513,48 @@ const engine = {
             // 3. Render Tasks Feed
             this.renderRecentTasks(tasks);
 
+            // 4. Permission Check: Toggle Action Cards vs Charts
+            if (window.userPermissions && !window.userPermissions.canCreate) {
+                $('#dashboard-action-cards').addClass('hidden');
+                $('#dashboard-read-only-charts').removeClass('hidden');
+                this.renderReadOnlyCharts(tasks, assignments, consultants);
+            }
+
         } catch (e) {
             console.error(e);
             ui.toast("Dashboard Partial Load Error", "error");
         } finally {
             ui.setLoading(false);
         }
+    },
+
+    renderReadOnlyCharts(tasks, assignments, consultants) {
+        // Chart 1: Task Efficiency (Completed vs Pending)
+        const completed = tasks.filter(t => t.Status === 'Completed').length;
+        const pending = tasks.length - completed;
+        new Chart(document.getElementById('chart-ro-tasks'), {
+            type: 'doughnut',
+            data: { labels: ['Done', 'Pending'], datasets: [{ data: [completed, pending], backgroundColor: ['#f97316', '#fed7aa'], borderWidth: 0 }] },
+            options: { cutout: '70%', plugins: { legend: { display: false } }, responsive: true, maintainAspectRatio: false }
+        });
+
+        // Chart 2: Project Types (Simple Distribution)
+        const types = {};
+        assignments.forEach(a => types[a.ProjectType || 'General'] = (types[a.ProjectType || 'General'] || 0) + 1);
+        new Chart(document.getElementById('chart-ro-projects'), {
+            type: 'pie',
+            data: { labels: Object.keys(types), datasets: [{ data: Object.values(types), backgroundColor: ['#3b82f6', '#93c5fd', '#1e40af'], borderWidth: 0 }] },
+            options: { plugins: { legend: { display: false } }, responsive: true, maintainAspectRatio: false }
+        });
+
+        // Chart 3: Utilization (Active vs Inactive Consultants)
+        const active = consultants.filter(c => c.Status === 'Active').length;
+        const inactive = consultants.length - active;
+        new Chart(document.getElementById('chart-ro-utilization'), {
+            type: 'doughnut',
+            data: { labels: ['Active', 'Bench'], datasets: [{ data: [active, inactive], backgroundColor: ['#a855f7', '#e9d5ff'], borderWidth: 0 }] },
+            options: { cutout: '70%', plugins: { legend: { display: false } }, responsive: true, maintainAspectRatio: false }
+        });
     },
 
     async renderSettingsPage() {
