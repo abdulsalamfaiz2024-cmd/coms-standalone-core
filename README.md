@@ -1,5 +1,7 @@
 # COMS (Consultant Operations & Management System)
 
+**Live Demo**: [custom-system-copy.onrender.com](https://custom-system-copy.onrender.com)
+
 ## Overview
 The Consultant Operations & Management System (COMS) is a specialized environment designed for consultants, integrated with the ERPNext backend. It separates the operational interface for consultants from the core ERPNext system (HR, Accounting, CRM) to provide a streamlined experience.
 
