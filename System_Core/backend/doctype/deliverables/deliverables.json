@@ -16,16 +16,21 @@
         {
             "fieldname": "Description",
             "label": "Description",
+            "fieldtype": "Text Area"
+        },
+        {
+            "fieldname": "Version",
+            "label": "Version",
             "fieldtype": "Data"
         },
         {
             "fieldname": "DueDate",
-            "label": "Duedate",
+            "label": "Due Date",
             "fieldtype": "Date"
         },
         {
             "fieldname": "SubmissionDate",
-            "label": "Submissiondate",
+            "label": "Submission Date",
             "fieldtype": "Date"
         },
         {
@@ -36,8 +41,34 @@
         },
         {
             "fieldname": "PaymentPercentage",
-            "label": "Paymentpercentage",
+            "label": "Payment %",
             "fieldtype": "Data"
+        },
+        {
+            "fieldname": "ReviewerID",
+            "label": "Reviewer",
+            "fieldtype": "Link",
+            "options": "Consultants"
+        },
+        {
+            "fieldname": "QualityMatrix",
+            "label": "Quality Score",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "RejectionReason",
+            "label": "Rejection Reason",
+            "fieldtype": "Text Area"
+        },
+        {
+            "fieldname": "Internal_Comments",
+            "label": "Internal Comments",
+            "fieldtype": "Text Area"
+        },
+        {
+            "fieldname": "Deliverable_File",
+            "label": "Deliverable File",
+            "fieldtype": "Attach"
         }
     ]
 }

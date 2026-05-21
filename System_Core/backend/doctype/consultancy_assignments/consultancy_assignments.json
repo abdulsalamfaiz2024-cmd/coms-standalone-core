@@ -88,6 +88,52 @@
             "fieldname": "EndDate",
             "label": "End Date",
             "fieldtype": "Date"
+        },
+        {
+            "fieldname": "TotalContractValue",
+            "label": "Total Contract Value",
+            "fieldtype": "Currency"
+        },
+        {
+            "fieldname": "SignatoryName",
+            "label": "Authorized Signatory",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "BillingContact",
+            "label": "Billing Contact",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "PaymentTerms",
+            "label": "Payment Terms",
+            "fieldtype": "Select",
+            "options": [
+                "Net 15",
+                "Net 30",
+                "Net 60",
+                "Milestone Based"
+            ]
+        },
+        {
+            "fieldname": "Objectives",
+            "label": "Project Objectives",
+            "fieldtype": "Text Area"
+        },
+        {
+            "fieldname": "Scope_In",
+            "label": "Scope: Included",
+            "fieldtype": "Text Area"
+        },
+        {
+            "fieldname": "Scope_Out",
+            "label": "Scope: Excluded",
+            "fieldtype": "Text Area"
+        },
+        {
+            "fieldname": "Signed_Contract",
+            "label": "Signed Contract (PDF)",
+            "fieldtype": "Attach"
         }
     ]
 }

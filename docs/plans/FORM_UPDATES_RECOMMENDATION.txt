@@ -1,0 +1,67 @@
+# Consulting System Form Updates Recommendation
+Based on industry standards and strict "Two-Type" Architecture.
+
+## Part A: Contracts (Dual Layer)
+
+### 1. Client Contract (`Consultancy_Assignments`)
+**Goal:** The legal agreement with the paying entity.
+*   **Current:** Minimal Metadata (Client, Funder, Dates).
+*   **Missing (Critical for Workflow):**
+    *   **TotalContractValue:** (Currency) The ceiling amount.
+    *   **SignatoryName:** (Data) Who signed?
+    *   **BillingContact:** (Link->ClientContact) Who pays the bills?
+    *   **PaymentTerms:** (Select) "Net 30", "Milestone 50/50".
+    *   **Objectives:** (Text Area) "Main goal of this engagement...".
+    *   **Scope_In:** (Text Area) What we ARE doing.
+    *   **Scope_Out:** (Text Area) What we are NOT doing (Risk mgmt).
+    *   **Signed_Contract:** (Attach) Upload of the PDF.
+
+### 2. Consultant Contract (`AssignmentConsultantRoles` / `Consultant Contract`)
+**Goal:** The agreement with the expert (Freelancer/Employee).
+*   **Current:** DailyRate, Fee_Planned, PerDiem.
+*   **Missing:**
+    *   **ContractType:** (Select) "Independent Contractor" vs "Employee".
+    *   **PaymentTrigger:** (Select) "Monthly Timesheet" vs "Deliverable Completion".
+    *   **ExpensePolicy:** (Select) "Receipts <$50" vs "Per Diem Only".
+    *   **NDA_Signed:** (Check) Risk compliance.
+    *   **TerminationNotice:** (Data) e.g. "14 Days".
+    *   **Signed_Agreement:** (Attach) Upload of the PDF.
+
+---
+
+## Part B: Invoices (Dual Layer)
+
+### 3. Client Invoice (`Client_Invoices`)
+**Goal:** A tax-compliant demand for payment.
+*   **Current:** Minimal (Amount, Status).
+*   **Missing:**
+    *   **LineItems:** (JSON) Detailed breakdown.
+    *   **TaxID:** (Data) Client Tax ID.
+    *   **BankReference:** (Text) Our receiving account details.
+    *   **Terms:** (Select) "Net 30", etc.
+    *   **PO_Number:** (Data) Client Purchase Order reference.
+    *   **Invoice_File:** (Attach) The generated/signed PDF.
+
+### 4. Consultant Invoice (`Consultant_Invoices`)
+**Goal:** A payment request from the expert to us.
+*   **Current:** PeriodStart, PeriodEnd, TotalAmount.
+*   **Missing:**
+    *   **LinkedTimesheets:** (List) Which days are being billed?
+    *   **LinkedExpenses:** (List) Expenses claimed in this period.
+    *   **TaxAmount:** (Currency) If consultant charges VAT.
+    *   **CleanTotal:** (Currency) Amount - Deductions.
+    *   **Invoice_Upload:** (Attach) The Consultant's PDF demand.
+
+---
+
+## Part C: Deliverables (Unified)
+
+### 5. Project Deliverable (`Deliverables`)
+**Goal:** The rigid QA gateway.
+*   **Current:** Title, Date, Status.
+*   **Missing:**
+    *   **Version:** (Data) e.g., "v1.0".
+    *   **ReviewerID:** (Link->Consultant) The 2nd pair of eyes.
+    *   **QualityMatrix:** (JSON) Score 1-5 on "Clarity", "Accuracy", "Value".
+    *   **RejectionReason:** (Text) If QA fails.
+    *   **Deliverable_File:** (Attach) The actual work product (PPT/DOC).

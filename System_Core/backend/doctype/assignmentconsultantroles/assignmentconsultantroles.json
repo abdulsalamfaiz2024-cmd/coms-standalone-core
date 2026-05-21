@@ -37,17 +37,17 @@
         },
         {
             "fieldname": "DutyStation",
-            "label": "Dutystation",
+            "label": "Duty Station",
             "fieldtype": "Data"
         },
         {
             "fieldname": "StartDate_Assign",
-            "label": "Startdate Assign",
+            "label": "Start Date",
             "fieldtype": "Date"
         },
         {
             "fieldname": "EndDate",
-            "label": "Contract End Date",
+            "label": "End Date",
             "fieldtype": "Date"
         },
         {
@@ -67,28 +67,28 @@
         },
         {
             "fieldname": "DailyRate_Contract",
-            "label": "Dailyrate Contract",
-            "fieldtype": "Data"
+            "label": "Daily Rate",
+            "fieldtype": "Currency"
         },
         {
             "fieldname": "Rate_Currency",
-            "label": "Rate Currency",
+            "label": "Currency",
             "fieldtype": "Data"
         },
         {
             "fieldname": "Fee_Planned",
             "label": "Fee Planned",
-            "fieldtype": "Data"
+            "fieldtype": "Currency"
         },
         {
             "fieldname": "Fee_Actual",
             "label": "Fee Actual",
-            "fieldtype": "Data"
+            "fieldtype": "Currency"
         },
         {
             "fieldname": "Timesheet_Required",
             "label": "Timesheet Required",
-            "fieldtype": "Data"
+            "fieldtype": "Check"
         },
         {
             "fieldname": "Travel_Days",
@@ -97,23 +97,68 @@
         },
         {
             "fieldname": "PerDiem_Applied",
-            "label": "Perdiem Applied",
-            "fieldtype": "Data"
+            "label": "Per Diem",
+            "fieldtype": "Check"
         },
         {
             "fieldname": "Performance_Rating",
-            "label": "Performance Rating",
+            "label": "Rating",
             "fieldtype": "Data"
         },
         {
             "fieldname": "Feedback_Notes",
-            "label": "Feedback Notes",
+            "label": "Feedback",
             "fieldtype": "Data"
         },
         {
             "fieldname": "Is_LeadRole",
-            "label": "Is Leadrole",
+            "label": "Is Lead",
+            "fieldtype": "Check"
+        },
+        {
+            "fieldname": "ContractType",
+            "label": "Contract Type",
+            "fieldtype": "Select",
+            "options": [
+                "Independent Contractor",
+                "Employee",
+                "Sub-Contractor"
+            ]
+        },
+        {
+            "fieldname": "PaymentTrigger",
+            "label": "Payment Trigger",
+            "fieldtype": "Select",
+            "options": [
+                "Monthly Timesheet",
+                "Deliverable Completion",
+                "Retainer"
+            ]
+        },
+        {
+            "fieldname": "ExpensePolicy",
+            "label": "Expense Policy",
+            "fieldtype": "Select",
+            "options": [
+                "Receipts Reimbursement",
+                "Per Diem Only",
+                "All Inclusive Rate"
+            ]
+        },
+        {
+            "fieldname": "NDA_Signed",
+            "label": "NDA Signed",
+            "fieldtype": "Check"
+        },
+        {
+            "fieldname": "TerminationNotice",
+            "label": "Termination Notice Period",
             "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Signed_Agreement",
+            "label": "Signed Agreement (PDF)",
+            "fieldtype": "Attach"
         }
     ]
 }

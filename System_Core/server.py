@@ -191,8 +191,10 @@ class ConsultancyRequestHandler(http.server.SimpleHTTPRequestHandler):
 
         # Serve uploaded files from /uploads/ path
         if self.path.startswith("/uploads/"):
+            from urllib.parse import unquote
             uploads_dir = os.path.join(WEB_ROOT, 'uploads')
-            file_name = self.path.replace("/uploads/", "")
+            decoded_path = unquote(self.path)
+            file_name = decoded_path.replace("/uploads/", "")
             file_path = os.path.join(uploads_dir, file_name)
             if os.path.exists(file_path):
                 try:
@@ -267,17 +269,16 @@ class ConsultancyRequestHandler(http.server.SimpleHTTPRequestHandler):
             return None
 
     def do_POST(self):
+        import uuid
+        import hashlib
         print(f"DEBUG: POST Request -> {self.path}")
-        
+
         # 1. API: Login
         if self.path == "/api/login":
             try:
                 content_length = int(self.headers['Content-Length'])
                 post_data = self.rfile.read(content_length)
                 auth_data = json.loads(post_data)
-                
-                import hashlib
-                import uuid
                 
                 username = auth_data.get('username')
                 password = auth_data.get('password')
@@ -345,6 +346,13 @@ class ConsultancyRequestHandler(http.server.SimpleHTTPRequestHandler):
 
         # 3. API: Upload File (Base64)
         if self.path == "/api/upload":
+            # --- PERMISSION CHECK ---
+            user = self._get_user_from_request()
+            if not user:
+                self.send_error(401, "Unauthorized: Login Required")
+                return
+            # ------------------------
+    
             try:
                 content_length = int(self.headers['Content-Length'])
                 post_data = self.rfile.read(content_length)

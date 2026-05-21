@@ -10,17 +10,32 @@
         },
         {
             "fieldname": "InvoiceNumber",
-            "label": "Invoicenumber",
+            "label": "Invoice Number",
             "fieldtype": "Data"
         },
         {
             "fieldname": "DateIssued",
-            "label": "Dateissued",
+            "label": "Date Issued",
             "fieldtype": "Date"
         },
         {
+            "fieldname": "PO_Number",
+            "label": "PO Number",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "BillingContact",
+            "label": "Billing Contact",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "TaxID",
+            "label": "Client Tax ID",
+            "fieldtype": "Data"
+        },
+        {
             "fieldname": "Amount",
-            "label": "Amount",
+            "label": "Total Amount",
             "fieldtype": "Currency"
         },
         {
@@ -36,8 +51,28 @@
         },
         {
             "fieldname": "PaymentDate",
-            "label": "Paymentdate",
+            "label": "Payment Date",
             "fieldtype": "Date"
+        },
+        {
+            "fieldname": "Terms",
+            "label": "Terms",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "BankReference",
+            "label": "Bank Reference",
+            "fieldtype": "Text Area"
+        },
+        {
+            "fieldname": "LineItems",
+            "label": "Service Details",
+            "fieldtype": "Table"
+        },
+        {
+            "fieldname": "Invoice_File",
+            "label": "Invoice PDF",
+            "fieldtype": "Attach"
         }
     ]
 }

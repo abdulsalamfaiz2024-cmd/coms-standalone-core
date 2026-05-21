@@ -429,12 +429,33 @@ const engine = {
             let val = doc[f.fieldname] || '';
             const col = f.fieldtype === 'Long Text' ? 'col-span-2' : 'col-span-1';
 
-            if (f.fieldname === 'Status') {
+            if (f.fieldtype === 'Status') {
                 html += `<div class="${col} space-y-3"><label class="text-[10px] font-black text-gray-500 uppercase tracking-widest">${f.label}</label>
                 <select name="Status" class="w-full p-5 bg-primary-50 border-none rounded-2xl font-bold text-primary-800 appearance-none">
                     <option value="Active" ${val === 'Active' ? 'selected' : ''}>Active</option>
-                    <option value="Inactive" ${val === 'Inactive' ? 'selected' : ''}>Inactive</option>
+                    <option value="Draft" ${val === 'Draft' ? 'selected' : ''}>Draft</option>
+                    <option value="Submitted" ${val === 'Submitted' ? 'selected' : ''}>Submitted</option>
+                    <option value="Approved" ${val === 'Approved' ? 'selected' : ''}>Approved</option>
+                    <option value="Rejected" ${val === 'Rejected' ? 'selected' : ''}>Rejected</option>
+                    <option value="Paid" ${val === 'Paid' ? 'selected' : ''}>Paid</option>
+                    <option value="Completed" ${val === 'Completed' ? 'selected' : ''}>Completed</option>
                 </select></div>`;
+            } else if (f.fieldtype === 'Attach') {
+                // ATTACHMENT FIELD
+                html += `<div class="${col} space-y-3">
+                    <label class="text-[10px] font-black text-gray-500 uppercase tracking-widest">${f.label}</label>
+                    <div class="flex items-center gap-3">
+                        <input type="hidden" name="${f.fieldname}" id="in-${f.fieldname}" value="${val}">
+                        <input type="file" id="file-${f.fieldname}" class="text-sm text-gray-500 w-full file:mr-4 file:py-3 file:px-6 file:rounded-xl file:border-0 file:text-xs file:font-black file:uppercase file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200">
+                        <button type="button" onclick="engine.uploadFile('${f.fieldname}')" class="bg-black text-white px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wide hover:bg-gray-800">Upload</button>
+                    </div>
+                    ${val ? `<div class="mt-2"><a href="${val}" target="_blank" class="text-primary-600 font-bold text-xs hover:underline flex items-center gap-1"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg> View Current File</a></div>` : ''}
+                </div>`;
+            } else if (f.fieldtype === 'Text Area' || f.fieldtype === 'Table') {
+                html += `<div class="col-span-2 space-y-3">
+                    <label class="text-[10px] font-black text-gray-500 uppercase tracking-widest">${f.label} ${f.fieldtype === 'Table' ? '(JSON DATA)' : ''}</label>
+                    <textarea name="${f.fieldname}" rows="6" class="w-full p-5 bg-gray-50 border-none rounded-2xl font-medium text-gray-900 focus:ring-4 focus:ring-primary-100 font-mono text-xs">${val}</textarea>
+                </div>`;
             } else if (f.fieldtype === 'Link') {
                 html += `<div class="${col} space-y-3"><label class="text-[10px] font-black text-gray-500 uppercase tracking-widest">${f.label}</label>
                 <select name="${f.fieldname}" onchange="engine.handleSelectChange('${this.currentDoctype}', '${f.fieldname}', '${f.options}', this.value)" class="w-full p-5 bg-gray-50 border-none rounded-2xl font-bold text-gray-900 appearance-none">
@@ -573,6 +594,53 @@ const engine = {
         } finally {
             ui.setLoading(false);
         }
+    },
+
+    uploadFile(fieldName) {
+        const fileInput = document.getElementById(`file-${fieldName}`);
+        const hiddenInput = document.getElementById(`in-${fieldName}`);
+
+        if (!fileInput.files || fileInput.files.length === 0) {
+            alert("Please select a file first.");
+            return;
+        }
+
+        const file = fileInput.files[0];
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+            const base64Content = e.target.result;
+
+            // Show Loading State
+            const btn = fileInput.nextElementSibling;
+            const originalText = btn.innerText;
+            btn.innerText = "UPLOADING...";
+            btn.disabled = true;
+
+            api.post('/api/upload', {
+                filename: file.name,
+                content: base64Content
+            }).then(resp => {
+                if (resp.status === 'success') {
+                    hiddenInput.value = resp.file_path;
+                    btn.innerText = "UPLOADED!";
+                    btn.classList.remove('bg-black');
+                    btn.classList.add('bg-green-600');
+                    setTimeout(() => {
+                        btn.innerText = "Upload";
+                        btn.disabled = false;
+                        btn.classList.remove('bg-green-600');
+                        btn.classList.add('bg-black');
+                    }, 2000);
+                } else {
+                    alert('Upload Failed');
+                    btn.innerText = originalText;
+                    btn.disabled = false;
+                }
+            });
+        };
+
+        reader.readAsDataURL(file);
     },
 
     renderCharts(assignments, consultants, stages) {

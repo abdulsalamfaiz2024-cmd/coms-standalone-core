@@ -16,23 +16,53 @@
         },
         {
             "fieldname": "PeriodStart",
-            "label": "Periodstart",
-            "fieldtype": "Data"
+            "label": "Period Start",
+            "fieldtype": "Date"
         },
         {
             "fieldname": "PeriodEnd",
-            "label": "Periodend",
-            "fieldtype": "Data"
+            "label": "Period End",
+            "fieldtype": "Date"
         },
         {
             "fieldname": "TotalAmount",
-            "label": "Totalamount",
+            "label": "Gross Amount",
+            "fieldtype": "Currency"
+        },
+        {
+            "fieldname": "TaxAmount",
+            "label": "Tax Added",
+            "fieldtype": "Currency"
+        },
+        {
+            "fieldname": "Deductions",
+            "label": "Deductions",
+            "fieldtype": "Currency"
+        },
+        {
+            "fieldname": "CleanTotal",
+            "label": "Net Payable",
             "fieldtype": "Currency"
         },
         {
             "fieldname": "ApprovalStatus",
-            "label": "Approvalstatus",
+            "label": "Status",
             "fieldtype": "Data"
+        },
+        {
+            "fieldname": "LinkedTimesheets",
+            "label": "Linked Timesheets",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "LinkedExpenses",
+            "label": "Linked Expenses",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "Invoice_Upload",
+            "label": "Consultant Invoice (PDF)",
+            "fieldtype": "Attach"
         }
     ]
 }
